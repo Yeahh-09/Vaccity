@@ -1,3 +1,4 @@
+
 /* MOBILE NAVIGATION */
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
@@ -34,9 +35,19 @@ themeToggle.addEventListener("click", () => {
   } catch (error) {}
 });
 
-/* EXPANDABLE VACCINE CARDS */
+/* EXPANDABLE VACCINE CARDS + SECRET RICKROLL */
 document.querySelectorAll(".learn-btn").forEach(button => {
   button.addEventListener("click", () => {
+    const card = button.closest(".type-card");
+    const cardText = card ? card.textContent.toLowerCase() : "";
+
+    // SECRET EASTER EGG: mRNA VACCINES
+    if (cardText.includes("mrna vaccines")) {
+      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+      return;
+    }
+
+    // NORMAL FUNCTIONALITY FOR ALL OTHER CARDS
     const detail = button.nextElementSibling;
     const open = detail.classList.toggle("show");
     button.textContent = open ? "SHOW LESS −" : "LEARN MORE +";
