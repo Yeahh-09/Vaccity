@@ -40,13 +40,11 @@ document.querySelectorAll(".learn-btn").forEach(button => {
     const card = button.closest(".type-card");
     const cardText = card ? card.textContent.toLowerCase() : "";
 
-    // Secret Easter egg: send the mRNA card to the hidden VACCITY surprise page.
     if (cardText.includes("mrna vaccines")) {
       window.location.href = "rickroll.html";
       return;
     }
 
-    // Keep the normal expand/collapse behavior for every other vaccine card.
     const detail = button.nextElementSibling;
     const open = detail.classList.toggle("show");
     button.textContent = open ? "SHOW LESS −" : "LEARN MORE +";
@@ -452,5 +450,42 @@ if ("IntersectionObserver" in window) {
     observer.observe(element);
   });
 }
+
+/* SECRET EASTER EGG: AYAZYL SAGOCSOC -> MOMO PAGE */
+(() => {
+  const nameLeaves = [...document.querySelectorAll("body *")].filter(element =>
+    element.children.length === 0 &&
+    /sagocsoc/i.test(element.textContent || "")
+  );
+
+  for (const nameElement of nameLeaves) {
+    let current = nameElement;
+    let trigger = null;
+
+    // Look upward until an element contains both parts of the name.
+    for (let level = 0; level < 6 && current; level++) {
+      const text = current.textContent || "";
+      if (/ayazyl/i.test(text) && /sagocsoc/i.test(text)) {
+        trigger = current;
+        break;
+      }
+      current = current.parentElement;
+    }
+
+    if (!trigger || trigger.dataset.momoEggBound === "true") continue;
+
+    trigger.dataset.momoEggBound = "true";
+    trigger.style.cursor = "pointer";
+    trigger.setAttribute("title", "You found something...");
+
+    trigger.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+      window.location.href = "momo.html";
+    });
+
+    break;
+  }
+})();
 
 console.log("Welcome to VACCITY! Explore, learn, and test your knowledge.");
