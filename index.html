@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Vaccity by Aya</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div id="readingProgress"></div>
+
+<nav>
+  <a href="#home" class="logo">VACC<span>ITY.</span></a>
+  <div class="nav-actions">
+    <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#how">HOW IT WORKS</a></li>
+    <li><a href="#types">TYPES</a></li>
+    <li><a href="#development">DEVELOPMENT</a></li>
+    <li><a href="#applications">APPLICATIONS</a></li>
+    <li><a href="#evaluation">IMPLICATIONS</a></li>
+    <li><a href="#creators">CREATORS</a></li>
+    <li><a href="#quiz" class="nav-quiz">TAKE THE QUIZ ↗</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">BIOTECHNOLOGY • IMMUNOLOGY • SCIENCE</span>
+    <h1>Small Dose.<br>Big <span>Protection.</span></h1>
+    <p>Discover how biotechnology helps create vaccines, trains our immune system, and protects communities against infectious diseases.</p>
+    <div class="hero-buttons">
+      <a href="#about" class="primary-btn">START EXPLORING →</a>
+      <a href="#how" class="secondary-btn">HOW VACCINES WORK</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <div class="cell">
+      <div class="cell-core">🧬</div>
+      <i class="particle p1"></i><i class="particle p2"></i>
+      <i class="particle p3"></i><i class="particle p4"></i>
+    </div>
+    <div class="float-label label-one">🛡️ Immune Protection</div>
+    <div class="float-label label-two">🧫 Biotechnology</div>
+  </div>
+</header>
+
+<section class="intro" id="about">
+  <div class="section-heading">
+    <span class="tag">01 — THE BASICS</span>
+    <h2>What Are Vaccines?</h2>
+    <p>Understanding the science behind one of the most important applications of biotechnology.</p>
+  </div>
+  <div class="intro-grid">
+    <div class="intro-visual">
+      <div class="intro-icon">💉</div>
+      <small>Science that protects lives</small>
+    </div>
+    <div class="intro-content">
+      <h2>A Lesson for Your Immune System</h2>
+      <p>Vaccines are biological preparations that help the immune system recognize and fight specific pathogens, such as viruses and bacteria.</p>
+      <p>They contain antigens or genetic instructions that allow the body to produce a safe immune response. This helps the immune system recognize the pathogen if it encounters it in the future.</p>
+      <p>Vaccines can prevent certain infectious diseases and reduce the risk of severe illness.</p>
+      <div class="fact"><strong>Did you know?</strong><br>Vaccination prepares your immune system to recognize a specific threat without requiring you to experience the full disease.</div>
+      <div id="factContainer"></div>
+      <div id="glossaryContainer"></div>
+      <div id="mythContainer"></div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="section-heading">
+    <span class="tag">02 — THE SCIENCE</span>
+    <h2>How Do Vaccines Work?</h2>
+    <p>Vaccines train your immune system through a series of biological responses.</p>
+  </div>
+  <div class="steps">
+    <article class="step"><div class="step-number">01</div><div class="step-icon">💉</div><h3>Vaccine Enters</h3><p>The vaccine introduces an antigen or genetic instructions that help the body recognize a specific pathogen.</p></article>
+    <article class="step"><div class="step-number">02</div><div class="step-icon">🧫</div><h3>Immune Recognition</h3><p>The immune system recognizes the antigen as foreign and activates an immune response.</p></article>
+    <article class="step"><div class="step-number">03</div><div class="step-icon">🛡️</div><h3>Antibodies Develop</h3><p>B cells can produce antibodies that help recognize and fight the specific pathogen.</p></article>
+    <article class="step"><div class="step-number">04</div><div class="step-icon">🧠</div><h3>Immune Memory</h3><p>Memory B cells and T cells help the body respond faster during future exposure.</p></article>
+  </div>
+</section>
+
+<section class="types" id="types">
+  <div class="section-heading">
+    <span class="tag">03 — VACCINE TECHNOLOGY</span>
+    <h2>Types of Vaccines</h2>
+    <p>Different biotechnology methods are used to develop vaccines. Search or click each card to learn more.</p>
+  </div>
+  <input class="vaccine-search" id="vaccineSearch" type="search" placeholder="🔎 Search vaccine types..." aria-label="Search vaccine types">
+  <div class="type-grid" id="typeGrid">
+    <article class="type-card"><div class="type-icon">🦠</div><h3>Live-Attenuated</h3><p>Uses a weakened form of the living pathogen to stimulate an immune response.</p><button class="learn-btn">LEARN MORE +</button><div class="type-detail">The weakened pathogen can still replicate but is modified so it does not usually cause disease in healthy people. Examples include MMR and varicella vaccines. These vaccines may not be suitable for some people with severely weakened immune systems.</div></article>
+    <article class="type-card"><div class="type-icon">🧪</div><h3>Inactivated</h3><p>Uses pathogens that have been killed or inactivated so they cannot reproduce.</p><button class="learn-btn">LEARN MORE +</button><div class="type-detail">The pathogen cannot replicate or cause infection. Some inactivated vaccines require multiple doses or booster shots to maintain protection. Examples include inactivated polio and hepatitis A vaccines.</div></article>
+    <article class="type-card"><div class="type-icon">🔬</div><h3>Subunit / Recombinant</h3><p>Uses only specific parts of a pathogen, such as proteins or antigens.</p><button class="learn-btn">LEARN MORE +</button><div class="type-detail">Recombinant DNA technology can produce pathogen proteins in other cells. These proteins are purified and used as vaccine antigens. Examples include hepatitis B and HPV vaccines.</div></article>
+    <article class="type-card"><div class="type-icon">🧬</div><h3>mRNA Vaccines</h3><p>Uses messenger RNA to provide instructions for cells to produce an antigen.</p><button class="learn-btn">LEARN MORE +</button><div class="type-detail">The mRNA is delivered into cells, often using lipid nanoparticles. Cells temporarily produce the antigen, which triggers an immune response. The mRNA is broken down afterward and does not change a person's DNA. Example: Pfizer-BioNTech COVID-19 vaccine.</div></article>
+    <article class="type-card"><div class="type-icon">🧫</div><h3>Viral Vector</h3><p>Uses a modified harmless virus to deliver genetic instructions for an antigen.</p><button class="learn-btn">LEARN MORE +</button><div class="type-detail">The modified vector carries genetic instructions into cells. The cells then produce an antigen that triggers an immune response. Example: Oxford-AstraZeneca COVID-19 vaccine.</div></article>
+    <article class="type-card"><div class="type-icon">🧬</div><h3>DNA Vaccines</h3><p>Uses a DNA plasmid containing instructions for producing a specific antigen.</p><button class="learn-btn">LEARN MORE +</button><div class="type-detail">The DNA plasmid enters cells, where its genetic instructions can be used to produce an antigen. This antigen is then recognized by the immune system.</div></article>
+  </div>
+  <p id="noResults">No vaccine type found. Try another keyword.</p>
+</section>
+
+<section class="development" id="development">
+  <div class="section-heading">
+    <span class="tag">04 — FROM LAB TO COMMUNITY</span>
+    <h2>How Are Vaccines Developed?</h2>
+    <p>Vaccine development involves scientific research, laboratory testing, clinical trials, and continuous safety monitoring.</p>
+  </div>
+  <div class="timeline">
+    <article class="timeline-item"><div class="timeline-dot">🔍</div><div class="timeline-content"><h3>1. Research and Discovery</h3><p>Scientists study the pathogen and identify antigens that can trigger an immune response.</p></div></article>
+    <article class="timeline-item"><div class="timeline-dot">🧪</div><div class="timeline-content"><h3>2. Preclinical Testing</h3><p>Laboratory and appropriate animal studies evaluate the vaccine's potential safety and immune response.</p></div></article>
+    <article class="timeline-item"><div class="timeline-dot">👥</div><div class="timeline-content"><h3>3. Clinical Trials</h3><p>Phase I evaluates initial safety, Phase II examines dosage and immune response, and Phase III evaluates safety and effectiveness in larger groups.</p></div></article>
+    <article class="timeline-item"><div class="timeline-dot">📋</div><div class="timeline-content"><h3>4. Regulatory Approval</h3><p>Health authorities review scientific evidence before deciding whether a vaccine can be authorized.</p></div></article>
+    <article class="timeline-item"><div class="timeline-dot">🏥</div><div class="timeline-content"><h3>5. Distribution and Monitoring</h3><p>Approved vaccines are distributed and monitored for safety and effectiveness even after public use.</p></div></article>
+  </div>
+</section>
+
+<section class="applications" id="applications">
+  <div class="section-heading">
+    <span class="tag">05 — BIOTECHNOLOGY IN ACTION</span>
+    <h2>Why Is Biotechnology Important?</h2>
+    <p>Modern biotechnology improves how scientists design, produce, and study vaccines.</p>
+  </div>
+  <div class="app-grid">
+    <article class="app-card"><div class="big-icon">🧬</div><h3>Genetic Engineering</h3><p>Scientists can modify genetic material and use recombinant DNA technology to produce specific vaccine antigens.</p></article>
+    <article class="app-card"><div class="big-icon">🔬</div><h3>Advanced Laboratory Techniques</h3><p>Biotechnology helps researchers identify pathogens, study immune responses, and evaluate vaccine performance.</p></article>
+    <article class="app-card"><div class="big-icon">⚗️</div><h3>Improved Production</h3><p>Cell culture, fermentation, and other biological processes help produce vaccine components on a larger scale.</p></article>
+    <article class="app-card"><div class="big-icon">🌍</div><h3>Public Health Protection</h3><p>Vaccine technology helps prevent infectious diseases, reduce severe illness, and support disease control programs worldwide.</p></article>
+  </div>
+</section>
+
+<section class="evaluation" id="evaluation">
+  <div class="section-heading">
+    <span class="tag">06 — CRITICAL EVALUATION</span>
+    <h2>Benefits, Risks & Ethical Issues</h2>
+    <p>Vaccines offer major public health benefits, but their development and distribution also involve important challenges.</p>
+  </div>
+  <div class="eval-grid">
+    <article class="eval-card pros"><h3>✓ Benefits</h3><ul><li>Prevent many infectious diseases.</li><li>Reduce the risk of severe illness and death.</li><li>Help protect communities through population immunity.</li><li>Support disease control and, in some cases, elimination.</li><li>Advances in biotechnology allow new vaccine designs.</li></ul></article>
+    <article class="eval-card cons"><h3>! Challenges & Risks</h3><ul><li>Some vaccines cause temporary side effects, such as fever or soreness.</li><li>Rare but serious adverse reactions can occur.</li><li>Cold-chain requirements can make distribution difficult.</li><li>Vaccine production and waste can affect the environment.</li><li>Research, testing, and manufacturing can be expensive.</li></ul></article>
+    <article class="eval-card ethics"><h3>♡ Ethical Issues</h3><ul><li>People should receive accurate information before vaccination.</li><li>Informed consent and personal autonomy must be respected.</li><li>Vaccines should be accessible regardless of income.</li><li>Clinical trials must protect participants' safety and rights.</li><li>Public health policies must balance individual rights and community protection.</li></ul></article>
+  </div>
+</section>
+
+<section class="philippines">
+  <div class="phil-box">
+    <div class="phil-icon">🇵🇭</div>
+    <div class="phil-content">
+      <span class="eyebrow">PHILIPPINE CASE STUDY</span>
+      <h2>Vaccination in the Philippines</h2>
+      <p>The Department of Health (DOH) implements the National Immunization Program to protect Filipinos against vaccine-preventable diseases.</p>
+      <p>Childhood immunization includes vaccines against diseases such as measles, polio, tuberculosis, and hepatitis B.</p>
+      <p>However, challenges such as vaccine hesitancy, misinformation, limited healthcare access, and distribution difficulties can affect vaccination coverage.</p>
+      <p>This shows why scientific innovation must be supported by public education, accessible healthcare, and responsible government policies.</p>
+      <a href="https://doh.gov.ph/" target="_blank" rel="noopener" class="primary-btn">VISIT THE DOH WEBSITE ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-section" id="quiz">
+  <div class="section-heading">
+    <span class="tag">07 — TEST YOUR KNOWLEDGE</span>
+    <h2>Are You Vaccine Smart?</h2>
+    <p>Answer all five questions to test your understanding of vaccine biotechnology.</p>
+  </div>
+  <div class="quiz-box">
+    <div id="quizContent">
+      <div class="quiz-progress"><div id="progressBar"></div></div>
+      <div class="quiz-top"><span id="questionNumber">QUESTION 1 OF 5</span><span id="scoreDisplay">SCORE: 0</span></div>
+      <h3 id="questionText"></h3>
+      <div class="answers" id="answers"></div>
+      <div class="quiz-feedback" id="feedback" aria-live="polite"></div>
+      <button class="quiz-next" id="nextBtn">NEXT QUESTION →</button>
+    </div>
+    <div class="quiz-result" id="quizResult">
+      <div class="result-icon" id="resultIcon">🏆</div>
+      <h3 id="resultTitle">Quiz Complete!</h3>
+      <p id="resultText"></p>
+      <button class="primary-btn" id="restartBtn">TRY AGAIN ↻</button>
+    </div>
+  </div>
+</section>
+
+<section class="creators" id="creators">
+  <div class="section-heading">
+    <span class="tag">08 — THE PEOPLE BEHIND THE PROJECT</span>
+    <h2>Meet the Creators</h2>
+    <p>The students behind this educational website, brought together by curiosity, collaboration, and a passion for science and biotechnology.</p>
+  </div>
+  <div class="creator-intro"><h3>Grade 10 - Amethyst</h3><p>Science, Technology, and Engineering (STE)</p></div>
+  <div class="creator-grid">
+    <article class="creator-card"><div class="creator-avatar">🧬</div><h4>Babarin, Rhiane Leigh K.</h4><span>WEBSITE CREATOR</span></article>
+    <article class="creator-card"><div class="creator-avatar">🔬</div><h4>Balarote, Aliah Jane N.</h4><span>WEBSITE CREATOR</span></article>
+    <article class="creator-card"><div class="creator-avatar">🧪</div><h4>Caibigan, Kassandra Chloe C.</h4><span>WEBSITE CREATOR</span></article>
+    <article class="creator-card"><div class="creator-avatar">💡</div><h4>Labador, Janna May G.</h4><span>WEBSITE CREATOR</span></article>
+    <article class="creator-card"><div class="creator-avatar">🧫</div><h4>Razo, Reyvane Blest J.</h4><span>WEBSITE CREATOR</span></article>
+    <article class="creator-card"><div class="creator-avatar">🛡️</div><h4>Sagocsoc, Ayazyl G.</h4><span>WEBSITE CREATOR</span></article>
+  </div>
+  <div class="creator-credit"><strong>Created by Grade 10-Amethyst STE students</strong><br>As a Science 10 Performance Task<br><br>An educational website about vaccines and their applications in biotechnology.<br><strong>Designed and developed through student collaboration.</strong></div>
+</section>
+
+<section class="references" id="references">
+  <div class="section-heading">
+    <span class="tag">09 — LEARN MORE</span>
+    <h2>References & Further Reading</h2>
+    <p>Explore reliable scientific and public health resources for additional information.</p>
+  </div>
+  <div class="reference-list">
+    <article class="reference"><strong>World Health Organization (WHO).</strong> Vaccines and immunization.<br><a href="https://www.who.int/health-topics/vaccines-and-immunization" target="_blank" rel="noopener">WHO – Vaccines and Immunization</a></article>
+    <article class="reference"><strong>Centers for Disease Control and Prevention (CDC).</strong> Understanding how vaccines work.<br><a href="https://www.cdc.gov/vaccines/basics/" target="_blank" rel="noopener">CDC – Vaccine Basics</a></article>
+    <article class="reference"><strong>U.S. Food and Drug Administration (FDA).</strong> Vaccine development and approval process.<br><a href="https://www.fda.gov/vaccines-blood-biologics/development-approval-process-cber/vaccine-development-101" target="_blank" rel="noopener">FDA – Vaccine Development 101</a></article>
+    <article class="reference"><strong>Department of Health (DOH), Philippines.</strong> Official Philippine public health information.<br><a href="https://doh.gov.ph/" target="_blank" rel="noopener">Department of Health Philippines</a></article>
+  </div>
+</section>
+
+<footer>
+  <h2>VACCITY.</h2>
+  <p>Understanding biotechnology. Appreciating science. Protecting lives.</p>
+  <p class="footer-credit"><strong>Created by Grade 10-Amethyst STE students</strong><br>Science 10 Performance Task</p>
+  <p class="copyright">© 2026 VACCITY<br>An educational website project by Grade 10-Amethyst STE.<br>Made for educational purposes.</p>
+</footer>
+
+<button id="backToTop" aria-label="Back to top">↑</button>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
