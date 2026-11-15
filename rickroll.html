@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#102c50">
   <title>A Little VACCITY Surprise</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --navy: #102c50;
@@ -43,7 +45,7 @@
       border: 1px solid rgba(23,105,170,.14);
       border-radius: 28px;
       box-shadow: 0 22px 65px rgba(16,44,80,.13);
-      animation: pop-in .65s cubic-bezier(.2,.8,.2,1) both;
+      animation: pop-in .65s ease both;
     }
 
     .eyebrow {
@@ -70,21 +72,6 @@
       line-height: 1.65;
     }
 
-    .portrait-wrap {
-      width: min(100%, 440px);
-      margin: 0 auto 22px;
-      overflow: hidden;
-      border-radius: 20px;
-      background: #dceef5;
-      box-shadow: 0 12px 30px rgba(16,44,80,.15);
-    }
-
-    .portrait-wrap img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
     .song-title {
       margin: 10px 0 22px;
       color: var(--navy);
@@ -98,19 +85,24 @@
       gap: 12px;
     }
 
-    a.button {
+    a.button, button.button {
       display: inline-flex;
       justify-content: center;
       align-items: center;
       min-height: 48px;
       padding: 13px 20px;
+      border: 0;
       border-radius: 12px;
       text-decoration: none;
+      font-family: inherit;
       font-weight: 800;
-      transition: transform .2s ease, box-shadow .2s ease;
+      cursor: pointer;
+      transition: transform .2s ease;
     }
 
-    a.button:hover { transform: translateY(-2px); }
+    a.button:hover, button.button:hover {
+      transform: translateY(-2px);
+    }
 
     .primary {
       color: white;
@@ -119,6 +111,13 @@
     }
 
     .secondary {
+      color: var(--blue);
+      background: rgba(70,198,219,.14);
+    }
+
+    .sound-button {
+      display: none;
+      margin: 18px auto 0;
       color: var(--blue);
       background: rgba(70,198,219,.14);
     }
@@ -134,13 +133,6 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-      }
-    }
-
     body.dark-mode {
       --page: #0b1726;
       --card: #13263b;
@@ -151,16 +143,21 @@
     body.dark-mode h1,
     body.dark-mode .song-title { color: #f0f7ff; }
 
-    body.dark-mode .surprise-card {
-      border-color: rgba(70,198,219,.2);
-      box-shadow: 0 22px 65px rgba(0,0,0,.3);
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <main class="surprise-card">
     <span class="eyebrow">🔎 SECRET DISCOVERED</span>
+
     <h1>YOU FOUND THE EASTER EGG!</h1>
+
     <p class="subtitle">
       You came here to learn about mRNA vaccines...
       but science has led you somewhere unexpected.
@@ -169,18 +166,25 @@
     <p class="song-title">A little surprise is waiting for you... 👀</p>
 
     <div class="actions">
-      <a
-        class="button primary"
-        href="rickroll-video.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >UNLOCK YOUR SURPRISE ↗</a>
+      <a class="button primary" href="rickroll-video.html">
+        UNLOCK YOUR SURPRISE ↗
+      </a>
 
-      <a class="button secondary" href="index.html">Back to VACCITY</a>
+      <a class="button secondary" href="index.html">
+        Back to VACCITY
+      </a>
     </div>
 
-    <p class="tiny-note">VACCITY: where science meets unexpected surprises. 💙</p>
+    <button class="button sound-button" id="playReward">
+      🔊 PLAY REWARD SOUND
+    </button>
+
+    <p class="tiny-note">
+      VACCITY: where science meets unexpected surprises. 💙
+    </p>
   </main>
+
+  <audio id="rewardAudio" src="achievement.m4a" preload="auto"></audio>
 
   <script>
     try {
@@ -188,6 +192,23 @@
         document.body.classList.add("dark-mode");
       }
     } catch (error) {}
+
+    const rewardAudio = document.getElementById("rewardAudio");
+    const playReward = document.getElementById("playReward");
+
+    rewardAudio.volume = 0.35;
+
+    window.addEventListener("load", () => {
+      rewardAudio.play().catch(() => {
+        playReward.style.display = "inline-flex";
+      });
+    });
+
+    playReward.addEventListener("click", () => {
+      rewardAudio.currentTime = 0;
+      rewardAudio.play();
+      playReward.style.display = "none";
+    });
   </script>
 </body>
 </html>
