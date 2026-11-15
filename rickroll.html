@@ -1,16 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#102c50">
-  <title>Secret Achievement | VACCITY</title>
-
+  <title>A Little VACCITY Surprise</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --navy: #102c50;
@@ -22,45 +19,31 @@
       --muted: #60758a;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
       display: grid;
       place-items: center;
-      padding: 24px 16px;
+      padding: 28px 18px;
       color: var(--ink);
       background:
-        radial-gradient(circle at 15% 15%, rgba(70,198,219,.2), transparent 32%),
+        radial-gradient(circle at 15% 15%, rgba(70,198,219,.20), transparent 32%),
         radial-gradient(circle at 85% 85%, rgba(23,105,170,.14), transparent 34%),
         var(--page);
       font-family: "DM Sans", sans-serif;
     }
 
-    .card {
+    .surprise-card {
       width: min(100%, 650px);
-      padding: clamp(26px, 5vw, 46px);
+      padding: clamp(24px, 5vw, 46px);
       text-align: center;
       background: var(--card);
       border: 1px solid rgba(23,105,170,.14);
       border-radius: 28px;
       box-shadow: 0 22px 65px rgba(16,44,80,.13);
-      animation: appear .65s ease both;
-    }
-
-    .icon {
-      width: 94px;
-      height: 94px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      background: rgba(70,198,219,.17);
-      font-size: 3.4rem;
-      animation: bounce 1.8s ease-in-out infinite;
+      animation: pop-in .65s cubic-bezier(.2,.8,.2,1) both;
     }
 
     .eyebrow {
@@ -69,107 +52,92 @@
       border-radius: 999px;
       color: var(--blue);
       background: rgba(70,198,219,.16);
-      font-size: .76rem;
+      font-size: .78rem;
       font-weight: 800;
-      letter-spacing: .1em;
+      letter-spacing: .09em;
     }
 
     h1 {
-      margin: 18px 0 10px;
+      margin: 20px 0 10px;
       color: var(--navy);
-      font: 800 clamp(2rem, 6vw, 3rem)/1.08 "Outfit", sans-serif;
+      font: 800 clamp(2rem, 7vw, 3.5rem)/1.05 "Outfit", sans-serif;
     }
 
-    p {
+    .subtitle {
+      margin: 0 auto 24px;
+      max-width: 470px;
       color: var(--muted);
       line-height: 1.65;
     }
 
-    .reward {
-      margin: 25px 0;
-      padding: 18px;
-      border: 1px dashed rgba(23,105,170,.35);
-      border-radius: 17px;
-      background: rgba(70,198,219,.08);
+    .portrait-wrap {
+      width: min(100%, 440px);
+      margin: 0 auto 22px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #dceef5;
+      box-shadow: 0 12px 30px rgba(16,44,80,.15);
     }
 
-    .reward strong {
+    .portrait-wrap img {
       display: block;
-      margin-bottom: 6px;
-      color: var(--blue);
-      font: 800 1.1rem "Outfit", sans-serif;
+      width: 100%;
+      height: auto;
     }
 
-    .unlock {
+    .song-title {
+      margin: 10px 0 22px;
+      color: var(--navy);
+      font: 700 1.35rem "Outfit", sans-serif;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    a.button {
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      min-height: 50px;
-      padding: 14px 22px;
-      border: 0;
-      border-radius: 13px;
-      color: white;
-      background: linear-gradient(135deg, var(--blue), var(--navy));
-      font: 800 1rem "DM Sans", sans-serif;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 12px;
       text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 9px 22px rgba(23,105,170,.23);
+      font-weight: 800;
       transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .unlock:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 13px 27px rgba(23,105,170,.3);
+    a.button:hover { transform: translateY(-2px); }
+
+    .primary {
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      box-shadow: 0 8px 20px rgba(23,105,170,.23);
     }
 
-    .back {
-      display: block;
-      margin-top: 20px;
+    .secondary {
+      color: var(--blue);
+      background: rgba(70,198,219,.14);
+    }
+
+    .tiny-note {
+      margin: 20px 0 0;
       color: var(--muted);
-      font-size: .9rem;
-      text-decoration: none;
+      font-size: .78rem;
     }
 
-    .back:hover {
-      color: var(--blue);
-    }
-
-    .sound-note {
-      margin-top: 15px;
-      font-size: .82rem;
-    }
-
-    .sound-button {
-      display: none;
-      margin: 12px auto 0;
-      padding: 9px 15px;
-      border: 1px solid rgba(23,105,170,.25);
-      border-radius: 10px;
-      color: var(--blue);
-      background: transparent;
-      font: 700 .9rem "DM Sans", sans-serif;
-      cursor: pointer;
-    }
-
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(18px) scale(.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0) rotate(0); }
-      50% { transform: translateY(-8px) rotate(5deg); }
+    @keyframes pop-in {
+      from { opacity: 0; transform: translateY(18px) scale(.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
       }
     }
 
@@ -180,58 +148,41 @@
       --muted: #b0c2d3;
     }
 
-    body.dark-mode h1 {
-      color: #f0f7ff;
-    }
+    body.dark-mode h1,
+    body.dark-mode .song-title { color: #f0f7ff; }
 
-    body.dark-mode .card {
+    body.dark-mode .surprise-card {
       border-color: rgba(70,198,219,.2);
       box-shadow: 0 22px 65px rgba(0,0,0,.3);
     }
   </style>
 </head>
-
 <body>
-  <main class="card">
-    <div class="icon">🏆</div>
-
-    <span class="eyebrow">SECRET ACHIEVEMENT UNLOCKED</span>
-
-    <h1>CONGRATULATIONS!</h1>
-
-    <p>
-      You've discovered a hidden secret in VACCITY!
-      Your dedication to exploring this website has earned you...
+  <main class="surprise-card">
+    <span class="eyebrow">🔎 SECRET DISCOVERED</span>
+    <h1>YOU FOUND THE EASTER EGG!</h1>
+    <p class="subtitle">
+      You came here to learn about mRNA vaccines...
+      but science has led you somewhere unexpected.
     </p>
 
-    <div class="reward">
-      <strong>🎖️ THE ULTIMATE RICKROLL REWARD</strong>
-      <span>You weren't supposed to find this. But here we are.</span>
+    <p class="song-title">A little surprise is waiting for you... 👀</p>
+
+    <audio id="rewardSound" src="achievement.m4a" preload="auto"></audio>
+    <button id="playSound" class="button secondary" type="button" hidden>▶ Tap to play the surprise sound</button>
+
+    <div class="actions">
+      <a
+        class="button primary"
+        href="rickroll-video.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >UNLOCK YOUR SURPRISE ↗</a>
+
+      <a class="button secondary" href="index.html" data-vaccity-back>Back to VACCITY</a>
     </div>
 
-    <p>
-      Ready to claim your reward? Proceed at your own risk. 😭
-    </p>
-
-    <a class="unlock" href="rickroll-video.html">
-      UNLOCK YOUR REWARD 🎁
-    </a>
-
-    <p class="sound-note">
-      🔊 Make sure your sound is on!
-    </p>
-
-    <button class="sound-button" id="playSound">
-      PLAY ACHIEVEMENT SOUND 🔊
-    </button>
-
-    <a class="back" href="index.html" id="backLink">
-      ← Return to VACCITY
-    </a>
-
-    <audio id="achievementSound" preload="auto">
-      <source src="achievement.m4a" type="audio/mp4">
-    </audio>
+    <p class="tiny-note">VACCITY: where science meets unexpected surprises. 💙</p>
   </main>
 
   <script>
@@ -244,50 +195,48 @@
 
   <script>
     (() => {
-      const audio = document.getElementById("achievementSound");
-      const button = document.getElementById("playSound");
-
-      if (!audio) return;
-
-      audio.volume = 1;
-
-      const playAchievement = () => {
-        audio.currentTime = 0;
-
-        const attempt = audio.play();
-
-        if (attempt && typeof attempt.catch === "function") {
-          attempt.catch(() => {
-            button.style.display = "inline-block";
-          });
-        }
-      };
-
-      window.addEventListener("pageshow", () => {
-        playAchievement();
-      });
-
-      button.addEventListener("click", playAchievement);
-    })();
-  </script>
-
-  <script>
-    (() => {
-      const backLink = document.getElementById("backLink");
-
+      const backLink = document.querySelector("[data-vaccity-back]");
       if (!backLink) return;
-
       backLink.addEventListener("click", event => {
-        if (
-          document.referrer &&
-          new URL(document.referrer).origin === window.location.origin &&
-          history.length > 1
-        ) {
+        const referrer = document.referrer;
+        if (referrer && new URL(referrer).origin === window.location.origin && history.length > 1) {
           event.preventDefault();
           history.back();
         }
       });
     })();
   </script>
+
+
+  <script>
+    (() => {
+      const sound = document.getElementById("rewardSound");
+      const playButton = document.getElementById("playSound");
+      if (!sound || !playButton) return;
+
+      // Try to play the achievement sound as soon as the secret page opens.
+      // Browsers may block autoplay, so reveal a button as a fallback.
+      const tryToPlay = () => {
+        const result = sound.play();
+        if (result && typeof result.catch === "function") {
+          result.catch(() => {
+            playButton.hidden = false;
+          });
+        }
+      };
+
+      playButton.addEventListener("click", () => {
+        sound.currentTime = 0;
+        sound.play().then(() => {
+          playButton.hidden = true;
+        }).catch(() => {
+          playButton.hidden = false;
+        });
+      });
+
+      window.addEventListener("load", tryToPlay, { once: true });
+    })();
+  </script>
+
 </body>
 </html>
