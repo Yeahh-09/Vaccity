@@ -123,25 +123,6 @@
       background: rgba(70,198,219,.14);
     }
 
-    .sound-button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 48px;
-      margin: 0 auto 18px;
-      padding: 13px 20px;
-      border: 0;
-      border-radius: 12px;
-      color: #fff;
-      background: linear-gradient(135deg, var(--blue), var(--navy));
-      font: 800 0.95rem "DM Sans", sans-serif;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(23,105,170,.23);
-    }
-
-    .sound-button:hover { transform: translateY(-2px); }
-    .sound-button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
-
     .tiny-note {
       margin: 20px 0 0;
       color: var(--muted);
@@ -187,8 +168,8 @@
 
     <p class="song-title">A little surprise is waiting for you... 👀</p>
 
-    <audio id="rewardSound" src="./achievement.m4a" preload="auto"></audio>
-    <button id="playSound" class="sound-button" type="button">▶ PLAY ACHIEVEMENT SOUND</button>
+    <audio id="rewardSound" src="achievement.m4a" preload="auto"></audio>
+    <button id="playSound" class="button secondary" type="button" hidden>▶ Tap to play the surprise sound</button>
 
     <div class="actions">
       <a
@@ -227,42 +208,33 @@
   </script>
 
 
-
-
-
   <script>
     (() => {
       const sound = document.getElementById("rewardSound");
-      const button = document.getElementById("playSound");
-      if (!sound || !button) return;
+      const playButton = document.getElementById("playSound");
+      if (!sound || !playButton) return;
 
-      // Browsers commonly block sound that starts without a tap/click.
-      // Attempt autoplay first, then keep the play button available.
-      window.addEventListener("load", () => {
-        sound.play().then(() => {
-          button.textContent = "♫ ACHIEVEMENT SOUND PLAYING";
-        }).catch(() => {
-          button.textContent = "▶ TAP TO PLAY ACHIEVEMENT SOUND";
-        });
-      }, { once: true });
+      // Try to play the achievement sound as soon as the secret page opens.
+      // Browsers may block autoplay, so reveal a button as a fallback.
+      const tryToPlay = () => {
+        const result = sound.play();
+        if (result && typeof result.catch === "function") {
+          result.catch(() => {
+            playButton.hidden = false;
+          });
+        }
+      };
 
-      button.addEventListener("click", () => {
+      playButton.addEventListener("click", () => {
         sound.currentTime = 0;
         sound.play().then(() => {
-          button.textContent = "♫ ACHIEVEMENT SOUND PLAYING";
-        }).catch((error) => {
-          button.textContent = "Sound couldn't load — check achievement.m4a";
-          console.error("VACCITY achievement sound error:", error);
+          playButton.hidden = true;
+        }).catch(() => {
+          playButton.hidden = false;
         });
       });
 
-      sound.addEventListener("ended", () => {
-        button.textContent = "↻ PLAY ACHIEVEMENT SOUND AGAIN";
-      });
-
-      sound.addEventListener("error", () => {
-        button.textContent = "Sound file missing — upload achievement.m4a";
-      });
+      window.addEventListener("load", tryToPlay, { once: true });
     })();
   </script>
 
